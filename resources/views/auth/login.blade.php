@@ -8,8 +8,8 @@
 
 <body class="bg-light">
 
-    <div class="container mt-5 col-md-4">
-        <div class="card shadow">
+    <div class="d-flex align-items-center justify-content-center min-vh-100">
+        <div class="card shadow" style="width:380px;">
             <div class="card-header text-center bg-primary text-white">
                 <h4>LOGIN</h4>
             </div>

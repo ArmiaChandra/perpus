@@ -37,6 +37,11 @@
         </table>
 
     </div>
+
 </div>
+<a href="/admin/dashboard"
+    class="btn btn-success btn-sm mt-3">
+    + Kembali ke dashboard
+</a>
 
 @endsection

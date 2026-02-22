@@ -30,6 +30,18 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nis' => 'required|unique:anggotas,nis',
+            'username' => 'required|unique:anggotas,username',
+            'nama' => 'required',
+            'kelas' => 'required',
+            'jurusan' => 'required',
+            'password' => 'required'
+        ], [
+            'nis.unique' => 'NIS sudah digunakan. Tidak boleh duplicate.',
+            'username.unique' => 'Username sudah digunakan. Pilih username lain.'
+        ]);
+
         Anggota::create([
             'nis' => $request->nis,
             'username' => $request->username,

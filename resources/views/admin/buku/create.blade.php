@@ -33,8 +33,15 @@
                                 </label>
                                 <input type="text"
                                     name="kode_buku"
-                                    class="form-control"
+                                    value="{{ old('kode_buku') }}"
+                                    class="form-control @error('kode_buku') is-invalid @enderror"
                                     required>
+
+                                @error('kode_buku')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
 
                             <div class="mb-3">

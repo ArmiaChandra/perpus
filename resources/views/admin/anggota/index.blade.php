@@ -26,6 +26,16 @@
         </div>
         @endif
 
+        @if($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
         <div class="card shadow">
             <div class="card-header bg-primary text-white d-flex justify-content-between">
                 <h5>Data Anggota</h5>
@@ -125,11 +135,11 @@
                     </div>
 
                     <div class="modal-body">
-                        <input name="nis" placeholder="NIS" class="form-control mb-2">
-                        <input name="nama" placeholder="Nama" class="form-control mb-2">
-                        <input name="kelas" placeholder="Kelas" class="form-control mb-2">
-                        <input name="jurusan" placeholder="Jurusan" class="form-control mb-2">
-                        <input name="username" placeholder="Username" class="form-control mb-2">
+                        <input name="nis" value="{{ old('nis') }}" placeholder="NIS" class="form-control mb-2">
+                        <input name="nama" value="{{ old('nama') }}" placeholder="Nama" class="form-control mb-2">
+                        <input name="kelas" value="{{ old('kelas') }}" placeholder="Kelas" class="form-control mb-2">
+                        <input name="jurusan" value="{{ old('jurusan') }}" placeholder="Jurusan" class="form-control mb-2">
+                        <input name="username" value="{{ old('username') }}" placeholder="Username" class="form-control mb-2">
                         <input name="password" type="password" placeholder="Password" class="form-control mb-2">
                     </div>
 
@@ -143,6 +153,15 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    @if($errors->any())
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var addModal = new bootstrap.Modal(document.getElementById('tambahModal'));
+            addModal.show();
+        });
+    </script>
+    @endif
 
 </body>
 

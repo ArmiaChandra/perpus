@@ -23,13 +23,25 @@
                     @csrf
                     @method('PUT')
 
-                    <input name="kode_buku"
-                        value="{{ $buku->kode_buku }}"
-                        class="form-control mb-3">
+                    <div class="mb-3">
+                        <input name="kode_buku"
+                            value="{{ old('kode_buku', $buku->kode_buku) }}"
+                            class="form-control @error('kode_buku') is-invalid @enderror"
+                            placeholder="Kode Buku">
+                        @error('kode_buku')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
 
-                    <input name="judul"
-                        value="{{ $buku->judul }}"
-                        class="form-control mb-3">
+                    <div class="mb-3">
+                        <input name="judul"
+                            value="{{ old('judul', $buku->judul) }}"
+                            class="form-control @error('judul') is-invalid @enderror"
+                            placeholder="Judul">
+                        @error('judul')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
 
                     <input name="pengarang"
                         value="{{ $buku->pengarang }}"
