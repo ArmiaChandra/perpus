@@ -2,12 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Siswa\PeminjamanController;
-use App\Http\Controllers\Siswa\PengembalianController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\Siswa\SiswaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BukuController;
-use App\Http\Controllers\AnggotaController;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -50,3 +48,9 @@ Route::get('/siswa/pengembalian/kembali/{id}', [SiswaController::class, 'kembali
 
 // Histori
 Route::get('/admin/histori', [AdminController::class, 'histori']);
+
+// Transaksi
+Route::get('/admin/histori', [TransaksiController::class, 'index']);
+Route::post('/admin/transaksi/store', [TransaksiController::class, 'store']);
+Route::post('/admin/transaksi/update/{id}', [TransaksiController::class, 'update']);
+Route::get('/admin/transaksi/delete/{id}', [TransaksiController::class, 'destroy']);
